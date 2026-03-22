@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chuck Norris Final Send Off</title>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #D4A017;
+    --dark-gold: #8B6914;
+    --rust: #8B2500;
+    --cream: #F5E6C8;
+    --dark: #1A0F00;
+    --mid: #2E1A00;
+    --smoke: #C4A882;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--dark);
+    color: var(--cream);
+    font-family: 'Special Elite', cursive;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* HERO */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #3D1F00 0%, #1A0F00 70%);
+    padding: 2rem;
+  }
+
+  .sun-rays {
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 0deg at 50% 40%, transparent 0deg, rgba(212,160,23,0.04) 10deg, transparent 20deg, rgba(212,160,23,0.04) 30deg, transparent 40deg, rgba(212,160,23,0.04) 50deg, transparent 60deg, rgba(212,160,23,0.04) 70deg, transparent 80deg, rgba(212,160,23,0.04) 90deg, transparent 100deg, rgba(212,160,23,0.04) 110deg, transparent 120deg, rgba(212,160,23,0.04) 130deg, transparent 140deg, rgba(212,160,23,0.04) 150deg, transparent 160deg, rgba(212,160,23,0.04) 170deg, transparent 180deg, rgba(212,160,23,0.04) 190deg, transparent 200deg, rgba(212,160,23,0.04) 210deg, transparent 220deg, rgba(212,160,23,0.04) 230deg, transparent 240deg, rgba(212,160,23,0.04) 250deg, transparent 260deg, rgba(212,160,23,0.04) 270deg, transparent 280deg, rgba(212,160,23,0.04) 290deg, transparent 300deg, rgba(212,160,23,0.04) 310deg, transparent 320deg, rgba(212,160,23,0.04) 330deg, transparent 340deg, rgba(212,160,23,0.04) 350deg, transparent 360deg);
+    animation: slowSpin 60s linear infinite;
+  }
+
+  @keyframes slowSpin { to { transform: rotate(360deg); } }
+
+  .badge {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--rust);
+    border: 2px solid var(--gold);
+    padding: 0.3rem 1.5rem;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .hero-star {
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    animation: starPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px var(--gold));
+  }
+  @keyframes starPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.1)} }
+
+  h1 {
+    font-family: 'Rye', cursive;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    color: var(--gold);
+    text-shadow: 3px 3px 0 var(--rust), 6px 6px 0 var(--dark), 0 0 60px rgba(212,160,23,0.4);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    animation: fadeDown 1s ease-out;
+  }
+
+  .subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(0.8rem, 2vw, 1.1rem);
+    letter-spacing: 6px;
+    color: var(--smoke);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeDown 1s ease-out 0.2s both;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.5rem auto;
+    width: min(500px, 90%);
+    color: var(--gold);
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  @keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+
+  /* CHUCK PHOTO */
+  .chuck-photo-wrapper {
+    position: relative;
+    margin: 1.5rem auto;
+    width: min(280px, 70vw);
+    animation: fadeDown 1s ease-out 0.4s both;
+  }
+
+  .chuck-photo-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border: 2px solid var(--gold);
+    clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
+  }
+
+  .chuck-photo-wrapper::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, var(--dark) 100%);
+  }
+
+  .chuck-photo {
+    width: 100%;
+    display: block;
+    filter: sepia(0.6) contrast(1.1);
+    clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0% calc(100% - 10px), 0% 10px);
+  }
+
+  .wanted-label {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Rye', cursive;
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 3px;
+    z-index: 2;
+    text-shadow: 1px 1px 4px var(--dark);
+  }
+
+  /* SECTIONS COMMON */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Rye', cursive;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gold);
+    text-shadow: 2px 2px 0 var(--rust);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    color: var(--smoke);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* QUOTE OF THE DAY */
+  #quote {
+    background: linear-gradient(135deg, var(--mid) 0%, #150A00 100%);
+    border-top: 1px solid var(--dark-gold);
+    border-bottom: 1px solid var(--dark-gold);
+    position: relative;
+  }
+
+  #quote::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 2rem;
+    font-family: 'Rye', cursive;
+    font-size: 8rem;
+    color: var(--dark-gold);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  .quote-box {
+    background: rgba(212,160,23,0.05);
+    border: 1px solid rgba(212,160,23,0.2);
+    padding: 2rem;
+    position: relative;
+    text-align: center;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #quote-text {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    line-height: 1.7;
+    color: var(--cream);
+    font-style: italic;
+    transition: opacity 0.5s;
+  }
+
+  .quote-btn {
+    display: block;
+    margin: 1.5rem auto 0;
+    background: none;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Special Elite', cursive;
+    font-size: 0.85rem;
+    padding: 0.6rem 2rem;
+    cursor: crosshair;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .quote-btn:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  /* RANDOM JOKES */
+  #jokes {
+    background: var(--dark);
+  }
+
+  .joke-card {
+    background: linear-gradient(135deg, var(--mid), #1F1000);
+    border: 1px solid var(--dark-gold);
+    padding: 1.5rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .joke-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .joke-card::before {
+    content: '🤠';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .joke-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--cream);
+    padding-right: 2rem;
+  }
+
+  .load-more-btn {
+    display: block;
+    margin: 2rem auto 0;
+    background: var(--rust);
+    border: 2px solid var(--dark-gold);
+    color: var(--gold);
+    font-family: 'Rye', cursive;
+    font-size: 0.95rem;
+    padding: 0.8rem 2.5rem;
+    cursor: crosshair;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .load-more-btn:hover {
+    background: var(--dark-gold);
+    color: var(--dark);
+    transform: scale(1.03);
+  }
+
+  /* CONTRIBUTION */
+  #contribution {
+    background: linear-gradient(135deg, #1F0A00, var(--mid));
+    border-top: 1px solid var(--dark-gold);
+    border-bottom: 1px solid var(--dark-gold);
+  }
+
+  .contribution-inner {
+    border: 1px solid var(--dark-gold);
+    padding: 2rem;
+    background: rgba(0,0,0,0.3);
+    position: relative;
+    text-align: center;
+  }
+
+  .contribution-inner::before, .contribution-inner::after {
+    content: '✦';
+    position: absolute;
+    color: var(--dark-gold);
+    font-size: 1.5rem;
+  }
+  .contribution-inner::before { top: 0.8rem; left: 1rem; }
+  .contribution-inner::after { bottom: 0.8rem; right: 1rem; }
+
+  .big-amount {
+    font-family: 'Rye', cursive;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--gold);
+    text-shadow: 3px 3px 0 var(--rust);
+    display: block;
+    line-height: 1;
+    margin: 1rem 0;
+  }
+
+  .contribution-meta {
+    font-size: 0.85rem;
+    color: var(--smoke);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .contrib-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .contrib-stat {
+    background: rgba(212,160,23,0.08);
+    border: 1px solid rgba(212,160,23,0.2);
+    padding: 1rem;
+  }
+
+  .contrib-stat .num {
+    font-family: 'Rye', cursive;
+    font-size: 1.8rem;
+    color: var(--gold);
+    display: block;
+  }
+
+  .contrib-stat .label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--smoke);
+    text-transform: uppercase;
+  }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #25D366;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.8rem 2rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .whatsapp-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+  /* MEMBERS */
+  #members {
+    background: var(--dark);
+  }
+
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
+  }
+
+  .member-card {
+    background: var(--mid);
+    border: 1px solid var(--dark-gold);
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+    clip-path: polygon(8px 0%, calc(100% - 8px) 0%, 100% 8px, 100% calc(100% - 8px), calc(100% - 8px) 100%, 8px 100%, 0% calc(100% - 8px), 0% 8px);
+    transition: transform 0.2s, background 0.2s;
+    text-decoration: none;
+    display: block;
+    cursor: crosshair;
+  }
+  .member-card:hover {
+    transform: translateY(-4px);
+    background: #3D1F00;
+  }
+
+  .wa-hint {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.62rem;
+    color: #25D366;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .member-card:hover .wa-hint { opacity: 1; }
+
+  .member-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rust), var(--dark-gold));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin: 0 auto 0.7rem;
+    border: 2px solid var(--gold);
+  }
+
+  .member-name {
+    font-size: 0.8rem;
+    color: var(--cream);
+    letter-spacing: 1px;
+    display: block;
+  }
+
+  .member-badge {
+    display: inline-block;
+    background: var(--rust);
+    color: var(--gold);
+    font-size: 0.6rem;
+    padding: 0.1rem 0.4rem;
+    letter-spacing: 1px;
+    margin-top: 0.3rem;
+    text-transform: uppercase;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0D0700;
+    border-top: 1px solid var(--dark-gold);
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.8rem;
+    color: var(--smoke);
+    letter-spacing: 2px;
+  }
+
+  footer strong {
+    color: var(--gold);
+    font-family: 'Rye', cursive;
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* LOADING SPINNER */
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--dark-gold);
+    border-top-color: var(--gold);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* BULLET HOLES DECO */
+  .bullet-hole {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dark);
+    border: 2px solid var(--dark-gold);
+    box-shadow: 0 0 8px rgba(212,160,23,0.3);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="sun-rays"></div>
+  <div class="badge">Death tried. Death lost. Now we pay our respects.</div>
+  <div class="hero-star">★</div>
+  <h1>Chuck Norris<br>Final Send Off</h1>
+  <p class="subtitle">WhatsApp Group · Official Tribute Page</p>
+
+  <div class="divider">
+    <span class="bullet-hole"></span>
+    <span style="color:var(--gold);font-size:0.8rem;letter-spacing:3px;">IN MEMORIAM</span>
+    <span class="bullet-hole"></span>
+  </div>
+
+  <div class="chuck-photo-wrapper">
+    <img class="chuck-photo"
+      src="images.jpeg"
+      alt="Chuck Norris"
+      onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Chuck_Norris_2013.jpg/440px-Chuck_Norris_2013.jpg'"
+    >
+    <div class="wanted-label">THE LEGEND</div>
+  </div>
+
+  <p class="subtitle" style="margin-top:1rem;font-size:0.75rem;">
+    "Meet me in the afterlife, and I'll show you how to really kick it." - Chuck Norris, probably
+  </p>
+</section>
+
+<!-- QUOTE OF THE DAY -->
+<section id="quote">
+  <div class="section-header reveal">
+    <h2>⚡ Quote of the Day</h2>
+    <p>Straight from the man himself</p>
+  </div>
+  <div class="quote-box reveal" style="flex-direction:column;gap:0.8rem;">
+    <p id="quote-text" style="transition:opacity 0.5s;"></p>
+    <p id="quote-attr" style="font-family:'Oswald',sans-serif;font-size:0.75rem;letter-spacing:3px;color:var(--gold);text-transform:uppercase;transition:opacity 0.5s;"></p>
+  </div>
+  <button class="quote-btn reveal" onclick="loadQuote()">🔫 Load Another</button>
+</section>
+
+<!-- RANDOM FACTS & JOKES -->
+<section id="jokes">
+  <div class="section-header reveal">
+    <h2>🤠 Chuck Norris Facts</h2>
+    <p>These are not jokes. These are documented facts.</p>
+  </div>
+  <div id="jokes-container"></div>
+  <button class="load-more-btn" onclick="loadJokes()">🔫 More Facts, Partner</button>
+</section>
+
+<!-- CONTRIBUTIONS -->
+<section id="contribution">
+  <div class="section-header reveal">
+    <h2>💰 The Tribute Fund</h2>
+    <p>Chip in & honour the legend</p>
+  </div>
+  <div class="contribution-inner reveal">
+    <p class="contribution-meta">Group Contribution Goal</p>
+    <span class="big-amount">KES 500</span>
+    <p class="contribution-meta">per member · for the final send off</p>
+
+    <div class="contrib-details">
+      <div class="contrib-stat">
+        <span class="num" id="member-count">12</span>
+        <span class="label">Members</span>
+      </div>
+      <div class="contrib-stat">
+        <span class="num">KES 500</span>
+        <span class="label">Each</span>
+      </div>
+      <div class="contrib-stat">
+        <span class="num">KES 6,000</span>
+        <span class="label">Total Goal</span>
+      </div>
+    </div>
+
+    <p style="color:var(--smoke);font-size:0.85rem;margin-bottom:1rem;">
+      Send your contribution via M-Pesa and confirm in the group.<br>
+      Chuck Norris once counted to infinity — twice. The least we can do is count to KES 500.
+    </p>
+
+    <a class="whatsapp-btn" href="https://chat.whatsapp.com/Fnv9erHWCKe2rS2GPEU2gg?mode=gi_t" target="_blank">
+      💬 Share in Group
+    </a>
+  </div>
+</section>
+
+<!-- GROUP MEMBERS -->
+<section id="members">
+  <div class="section-header reveal">
+    <h2>🌵 The Posse</h2>
+    <p>The brave souls in the group</p>
+  </div>
+  <div class="members-grid reveal" id="members-grid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>Chuck Norris Final Send Off</strong><br><br>
+    <span style="font-size:0.7rem;">
+      Chuck Norris doesn't rest in peace — he rests in power.<br>
+      Built with respect & roundhouse kicks · WhatsApp Fun Group · 2025
+    </span>
+  </p>
+</footer>
+
+<script>
+  // ── REAL CHUCK NORRIS QUOTES (things he actually said) ──
+  const realQuotes = [
+    { text: "I've always found that anything worth achieving will always have obstacles in the way, and you've got to have that drive and determination to overcome those obstacles on route to whatever it is that you want to accomplish.", attr: "— Chuck Norris" },
+    { text: "A lot of times people look at the negative side of what they feel they can't do. I always look on the positive side of what I can do.", attr: "— Chuck Norris" },
+    { text: "I've always tried to be a good role model for kids. I think it's important that adults show young people that you can be tough and still be kind.", attr: "— Chuck Norris" },
+    { text: "Men are like steel. When they lose their temper, they lose their worth.", attr: "— Chuck Norris" },
+    { text: "I'm not Superman. I'm just a man who has learned to be tough when he has to be.", attr: "— Chuck Norris" },
+    { text: "Whatever luck I had, I made. I was never a natural athlete, but I paid my dues in sweat and concentration and took the time necessary to learn karate and become world champion.", attr: "— Chuck Norris" },
+    { text: "The secret of my success is that I always managed to live to fight another day.", attr: "— Chuck Norris" },
+    { text: "I think setting a goal, getting a visual image of what it is you want. You've got to see what it is you want to achieve before you can pursue it.", attr: "— Chuck Norris" },
+  ];
+
+  // ── REAL FUNNY FACTS ABOUT THE ACTUAL CHUCK NORRIS ──
+  const realFacts = [
+    "Chuck Norris holds a 8th degree Black Belt Grand Master ranking in Tang Soo Do — one of only a handful of non-Koreans to ever achieve it. He literally earned the right to roundhouse kick people.",
+    "He was the first person in the Western hemisphere to be awarded an 8th degree Black Belt in Taekwondo. His fists are officially classified as deadly weapons in the state of Texas. Allegedly.",
+    "Before becoming an action star, Chuck Norris was a shy, introverted kid from Ryan, Oklahoma — a town so small it basically doesn't exist on most maps. He found confidence through martial arts at age 18.",
+    "Chuck Norris fought Bruce Lee in 'Way of the Dragon' (1972). Lee hand-picked Norris specifically because he considered him the most formidable martial artist in America at the time.",
+    "He served in the United States Air Force and was stationed in South Korea — which is where he discovered martial arts. The US Air Force accidentally created the most dangerous man alive.",
+    "Chuck Norris has a black belt in Brazilian Jiu-Jitsu, awarded personally by the Gracie family. He was already a global action star when he decided he still needed to learn MORE fighting styles. Overachiever.",
+    "Walker Texas Ranger ran for 8 seasons and 203 episodes. Chuck Norris has kicked TV villains more times than most people have eaten breakfast.",
+    "He started the KICKSTART program in 1990 to keep kids off drugs through martial arts training. Chuck Norris has literally been fighting crime with roundhouse kicks for over 30 years — in real life.",
+    "The 'Chuck Norris Facts' meme was started by a college student in 2005. When Chuck Norris found out, he reportedly said he was honoured and found them hilarious. The legend laughed at himself.",
+    "Chuck Norris holds a 9th degree black belt in Chun Kuk Do, a martial art system he himself created. He invented his own martial art just because the others weren't enough.",
+  ];
+
+  let quoteIndex = Math.floor(Math.random() * realQuotes.length);
+  let factIndex = Math.floor(Math.random() * realFacts.length);
+
+  // ── MEMBERS DATA — add phone numbers to link to WhatsApp ──
+  // Replace phone numbers with real ones (international format, no + or spaces)
+  const members = [
+    { name: "Sheriff Joe",  emoji: "🤠", badge: "Leader",    phone: "254734841266" },
+    { name: "Night rider Bonny",   emoji: "🔫", badge: "Treasurer", phone: "254792531105" },
+    { name: "Chris the lone wolf",   emoji: "⭐", badge: "Admin",     phone: "254768423597" },
+    { name: "Shiko the iron lady",    emoji: "🐺", badge: "Member",    phone: "254713080902" },
+    
+  ];
+
+  // ── RENDER MEMBERS with WhatsApp links ──
+  const grid = document.getElementById('members-grid');
+  document.getElementById('member-count').textContent = members.length;
+  members.forEach(m => {
+    grid.innerHTML += `
+      <a class="member-card" href="https://wa.me/${m.phone}" target="_blank" title="Chat with ${m.name} on WhatsApp">
+        <div class="member-avatar">${m.emoji}</div>
+        <span class="member-name">${m.name}</span>
+        <span class="member-badge">${m.badge}</span>
+        <span class="wa-hint">💬 WhatsApp</span>
+      </a>`;
+  });
+
+  // ── QUOTE OF THE DAY (real quotes, cycling) ──
+  function loadQuote() {
+    const el = document.getElementById('quote-text');
+    const attrEl = document.getElementById('quote-attr');
+    el.style.opacity = '0';
+    if (attrEl) attrEl.style.opacity = '0';
+    setTimeout(() => {
+      const q = realQuotes[quoteIndex % realQuotes.length];
+      quoteIndex++;
+      el.textContent = q.text;
+      el.style.opacity = '1';
+      if (attrEl) { attrEl.textContent = q.attr; attrEl.style.opacity = '1'; }
+    }, 300);
+  }
+
+  // ── FACTS (real facts, cycling) ──
+  const shownFacts = new Set();
+  function loadJokes() {
+    const container = document.getElementById('jokes-container');
+    let added = 0;
+    let attempts = 0;
+    while (added < 3 && attempts < realFacts.length * 2) {
+      const idx = factIndex % realFacts.length;
+      factIndex++;
+      attempts++;
+      if (shownFacts.has(idx)) continue;
+      shownFacts.add(idx);
+      const fact = realFacts[idx];
+      const card = document.createElement('div');
+      card.className = 'joke-card';
+      card.innerHTML = `<p>${fact}</p>`;
+      container.appendChild(card);
+      const delay = added * 150 + 50;
+      setTimeout(() => card.classList.add('visible'), delay);
+      added++;
+    }
+    // If all facts shown, allow repeats
+    if (added < 3) {
+      shownFacts.clear();
+      loadJokes();
+    }
+  }
+
+  // ── SCROLL REVEAL ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── INIT ──
+  loadQuote();
+  loadJokes();
+</script>
+</body>
+</html>
